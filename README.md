@@ -1,3 +1,2 @@
-## TypeScript-Study
-
-Repositório de estudo de TypeScript
+# TypeScript-Study-Repo
+Repositório com conteúdo das aulas de TypeScript
