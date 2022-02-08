@@ -87,3 +87,61 @@ ususario = {
   idade: 23,
   nome: 'Ana',
 };
+
+// Criar type
+
+type Employee = {
+  employeeNames: string[],
+  hitPoint: (hours: number) => string
+};
+
+let employee: Employee = {
+  employeeNames: ['Minerva McGonagall', 'Severo Snape', 'Rubeus Hagrid'],
+  hitPoint: (hours) => {
+    if (hours <= 8) {
+      return 'Ponto normal';
+    }
+
+    return 'Fora do horário';
+  },
+};
+
+let employee2: Employee = {
+  employeeNames: ['Minerva McGonagall', 'Severo Snape', 'Rubeus Hagrid'],
+  hitPoint: (hours) => {
+    if (hours <= 8) {
+      return 'Ponto normal';
+    }
+
+    return 'Fora do horário';
+  },
+};
+
+// Union Types
+let nota: number | string = 10;
+console.log(`Minha nota é ${nota}`);
+nota = '10';
+console.log(`Minha nota é ${nota}`);
+// nota = true;
+// console.log(`Minha nota é ${nota}`);
+
+// tipo never
+function falha(msg: string): never {
+  throw new Error(msg);
+};
+
+const produto = {
+  nome: 'Sabão',
+  preco: -1,
+  validarProduto() {
+    if (!this.nome || this.nome.trim().length == 0) {
+      falha('Precisa ter um nome');
+    }
+
+    if (this.preco < 0) {
+      falha('Preço inválido!');
+    }
+  }
+};
+
+produto.validarProduto();
